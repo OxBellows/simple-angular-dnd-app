@@ -1,6 +1,6 @@
 # SimpleAngularDndApp
 
-Welcome to this humble portfolio project! This Angular app retrieves data from https://api.open5e.com/ and is meant to demonstrate a simple single-page application made in Angular.
+Welcome to this humble portfolio project! This Angular app retrieves data from https://api.open5e.com/ and is meant to demonstrate a simple single-page application.
 
 It displays DnD 5e race and class information in sortable + filterable Angular Material tables, which can be clicked to view a detailed view. 
 The ngx-toastr library is used to display messages to the user - otherwise, the project only relies on Angular and Angular Material packages. 
