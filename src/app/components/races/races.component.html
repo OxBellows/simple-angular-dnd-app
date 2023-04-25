@@ -1,0 +1,31 @@
+<h2>Races</h2>
+<mat-form-field *ngIf="races">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Human" #input>
+</mat-form-field>
+<mat-table mat-table [dataSource]='dataSource' matSort>
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">Name</mat-header-cell>
+        <mat-cell *matCellDef="let race">{{race.name}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="size">
+        <mat-header-cell *matHeaderCellDef mat-sort-header
+            sortActionDescription="Sort by size">Size</mat-header-cell>
+        <mat-cell *matCellDef="let race" [innerHTML]="race.size | starHide"></mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="speed">
+        <mat-header-cell *matHeaderCellDef mat-sort-header
+            sortActionDescription="Sort by speed">Speed (ft)</mat-header-cell>
+        <mat-cell *matCellDef="let race">{{race.speed?.walk}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="age">
+        <mat-header-cell *matHeaderCellDef mat-sort-header
+            sortActionDescription="Sort by age">Age</mat-header-cell>
+        <mat-cell *matCellDef="let race" [innerHTML]="race.age | starHide"></mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+    <mat-row *matRowDef="let race; columns: columnsToDisplay" routerLink="/races/{{race.slug}}"></mat-row>
+    <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data found</td>
+    </tr>
+</mat-table>

@@ -1,0 +1,36 @@
+<h2>Classes</h2>
+<mat-form-field  *ngIf="classes">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Ranger" #input>
+</mat-form-field>
+<mat-table [dataSource]='dataSource' matSort>
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">Name</mat-header-cell>
+        <mat-cell *matCellDef="let class">{{class.name}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="hit_dice">
+        <mat-header-cell *matHeaderCellDef mat-sort-header
+            sortActionDescription="Sort by hit_dice">Hit Dice</mat-header-cell>
+        <mat-cell *matCellDef="let class">{{class.hit_dice}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="prof_saving_throws">
+        <mat-header-cell *matHeaderCellDef mat-sort-header
+            sortActionDescription="Sort by saving_throw_proficiencies">Saving Throw Proficiencies</mat-header-cell>
+        <mat-cell *matCellDef="let class">{{class.prof_saving_throws}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="prof_armor">
+        <mat-header-cell *matHeaderCellDef mat-sort-header
+            sortActionDescription="Sort by prof_armor">Armor Proficiencies</mat-header-cell>
+        <mat-cell *matCellDef="let class">{{class.prof_armor}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="prof_weapons">
+        <mat-header-cell *matHeaderCellDef mat-sort-header
+            sortActionDescription="Sort by prof_weapons">Weapon Proficiencies</mat-header-cell>
+        <mat-cell *matCellDef="let class">{{class.prof_weapons}}</mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+    <mat-row *matRowDef="let class; columns: columnsToDisplay" routerLink="/classes/{{class.slug}}"></mat-row>
+    <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data found</td>
+    </tr>
+</mat-table>
