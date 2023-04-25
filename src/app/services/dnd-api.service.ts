@@ -87,7 +87,6 @@ export class DndApiService {
       const jsonData = await response.json();
       dndClass = jsonData;
       this.toastr.success(`Fetched class: ${dndClass.name}`);
-      console.log('dndClass: ', dndClass);
     } else {
       this.toastr.error(`Response code: ${response?.status}`);
     }
