@@ -1,0 +1,43 @@
+<div *ngIf="class">
+  <h2>{{class.name}}</h2>
+  <div class="mat-table" class="inline-larger">
+    <div class="mat-row" *ngIf="class.spellcasting_ability">
+      <div class="mat-cell">Spellcasting Ability</div>
+      <div class="mat-cell" [innerHTML]="class.spellcasting_ability"></div>
+    </div>
+    <div class="mat-row" *ngIf="class.hit_dice">
+      <div class="mat-cell">Hit Dice</div>
+      <div class="mat-cell" [innerHTML]="class.hit_dice"></div>
+    </div>
+    <div class="mat-row" *ngIf="class.hp_at_1st_level">
+      <div class="mat-cell">Hit Points at 1st Level</div>
+      <div class="mat-cell" [innerHTML]="class.hp_at_1st_level"></div>
+    </div>
+    <div class="mat-row" *ngIf="class.hp_at_higher_levels">
+      <div class="mat-cell">Hit Points at Higher Levels</div>
+      <div class="mat-cell" [innerHTML]="class.hp_at_higher_levels"></div>
+    </div>
+    <div class="mat-row" *ngIf="class.equipment">
+      <div class="mat-cell">Equipment</div>
+      <div class="mat-cell" [innerHTML]="class.equipment"></div>
+    </div>
+    <div class="mat-row" *ngIf="class.prof_armor">
+      <div class="mat-cell">Armor Proficiencies</div>
+      <div class="mat-cell" [innerHTML]="class.prof_armor"></div>
+    </div>
+    <div class="mat-row" *ngIf="class.prof_weapons">
+      <div class="mat-cell">Weapon Proficiencies</div>
+      <div class="mat-cell" [innerHTML]="class.prof_weapons"></div>
+    </div>
+    <div class="mat-row" *ngIf="class.prof_tools">
+      <div class="mat-cell">Tool Proficiencies</div>
+      <div class="mat-cell" [innerHTML]="class.prof_tools"></div>
+    </div>
+    <div class="mat-row" *ngIf="class.subtypes_name">
+      <div class="mat-cell">Subclass Name</div>
+      <div class="mat-cell" [innerHTML]="class.subtypes_name"></div>
+    </div>
+  </div>
+  <img src="assets/classArt/{{class.slug}}.png" class="inline-smaller">
+</div>
+<button type="button" (click)="goBack()" class="below-table">Back</button>

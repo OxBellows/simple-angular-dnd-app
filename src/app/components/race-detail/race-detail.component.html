@@ -1,0 +1,43 @@
+<div *ngIf="race">
+  <h2>{{race.name}}</h2>
+  <div class="mat-table" class="inline-larger">
+    <div class="mat-row" *ngIf="race.desc">
+      <div class="mat-cell">Description</div>
+      <div class="mat-cell">{{race.desc}}</div>
+    </div>
+    <div class="mat-row" *ngIf="race.asi_desc">
+      <div class="mat-cell">Ability Scores</div>
+      <div class="mat-cell" [innerHTML]="race.asi_desc | starHide"></div>
+    </div>
+    <div class="mat-row" *ngIf="race.age">
+      <div class="mat-cell">Age</div>
+      <div class="mat-cell" [innerHTML]="race.age | starHide"></div>
+    </div>
+    <div class="mat-row" *ngIf="race.size">
+      <div class="mat-cell">Size</div>
+      <div class="mat-cell" [innerHTML]="race.size | starHide"></div>
+    </div>
+    <div class="mat-row" *ngIf="race.alignment">
+      <div class="mat-cell">Alignment</div>
+      <div class="mat-cell" [innerHTML]="race.alignment | starHide"></div>
+    </div>
+    <div class="mat-row" *ngIf="race.speed_desc">
+      <div class="mat-cell">Speed</div>
+      <div class="mat-cell" [innerHTML]="race.speed_desc | starHide"></div>
+    </div>
+    <div class="mat-row" *ngIf="race.vision">
+      <div class="mat-cell">Vision</div>
+      <div class="mat-cell" [innerHTML]="race.vision | starHide"></div>
+    </div>
+    <div class="mat-row" *ngIf="race.traits">
+      <div class="mat-cell">Traits</div>
+      <div class="mat-cell" [innerHTML]="race.traits | starHide"></div>
+    </div>
+    <div class="mat-row" *ngIf="race.languages">
+      <div class="mat-cell">Languages</div>
+      <div class="mat-cell" [innerHTML]="race.languages | starHide"></div>
+    </div>
+  </div>
+  <img src="assets/raceArt/{{race.slug}}.png" class="inline-smaller">
+</div>
+<button type="button" (click)="goBack()">Back</button>
